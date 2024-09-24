@@ -1,0 +1,1 @@
+Rock Paper Scissors is a classic game played between two players in a best-of-three format. The game continues until one player wins 2 rounds. Each round begins with both players choosing either 'rock', 'paper', or 'scissors'. If both players choose the same move, the round is considered a tie (round 0). The first player to win 2 rounds is declared the winner
