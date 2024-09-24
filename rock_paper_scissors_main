@@ -1,0 +1,89 @@
+import random
+
+
+print("Description : In this game two players simultaneously form a rock, paper, or scissors shape with their hands.\n Rock crushes scissors, paper covers rock, and scissors cut paper. The player with the stronger move wins!\n\n")
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+
+
+
+hands=[rock,paper,scissors]
+
+print("----- WELCOME TO BEST OF THREE GAME -----")
+
+
+def game():
+  x=3
+  comp=0
+  user=0
+  round=1
+  while round <= x:
+
+
+    your_choice=int(input(f"Round:{round} Make your choice: type 0 for rock, 1 for paper, or 2 for scissors!"))
+    comp_choice = random.randint(0,2)
+
+    print("Your choice : \n" + hands[your_choice])
+    print("Computer choice \n: " + hands[comp_choice])
+
+
+    if your_choice >= 3 or your_choice < 0:
+        print("You typed an invalid number. You lose!")
+        x=0
+    else:
+      if your_choice == 0 and comp_choice == 2:
+          print("You win!")
+          user+=1
+      elif comp_choice == 0 and your_choice == 2:
+          print("You lose!")
+          comp+=1
+      elif comp_choice > your_choice:
+          print("You lose!")
+          comp+=1
+      elif your_choice > comp_choice:
+          print("You win!")
+          user+=1
+      elif comp_choice == your_choice:
+          print("It's a draw!")
+          x+=1
+
+
+      print(f"Round{round} results :User: {user}  V  Comp: {comp} \n")
+      round+=1
+
+  if user>comp:
+    print("----- YOU WON CONGRATULATIONS -----\n")
+  elif comp>user:
+    print("----- Our computer has beaten you, I'm sorry.\n")
+
+  again=input("Do you want to play again ? if yes press 'y' ").lower()
+  if again=="y":
+    game()
+
+game()
